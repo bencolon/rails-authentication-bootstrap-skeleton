@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Skeleton Private Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= render partial: 'layouts/favicon' %>
+  <%= stylesheet_link_tag "private", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="/">Project name</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li><a href="#"><%= @current_user.name %></a></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= yield %>
+
+  <%= javascript_include_tag "private" %>
+</body>
+</html>
